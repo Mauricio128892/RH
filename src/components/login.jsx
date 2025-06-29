@@ -1,8 +1,8 @@
-// src/components/Login.jsx
+
 import React from 'react';
 import { signInWithPopup } from 'firebase/auth';
-import { auth, provider } from '../firebase'; // Asegúrate que la ruta a tu firebase.js sea correcta
-import { useNavigate } from 'react-router-dom'; // Para redirigir
+import { auth, provider } from '../firebase';
+import { useNavigate } from 'react-router-dom'; 
 
 const Login = () => {
   const navigate = useNavigate();
@@ -10,11 +10,11 @@ const Login = () => {
   const handleGoogleSignIn = async () => {
     try {
       await signInWithPopup(auth, provider);
-      // Si el inicio de sesión es exitoso, redirige a la página de inicio
+      
       navigate('/');
     } catch (error) {
       console.error("Error al iniciar sesión con Google:", error.message);
-      // Aquí puedes mostrar un mensaje de error al usuario
+      
       alert("Error al iniciar sesión: " + error.message);
     }
   };
